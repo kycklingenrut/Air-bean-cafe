@@ -1,0 +1,17 @@
+.cartNav {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cartNav:hover {
+  background: rgb(226, 225, 225);
+  cursor: pointer;
+}
+.shoppingSVG {
+  width: 20px;
+  height: 20px;
+}

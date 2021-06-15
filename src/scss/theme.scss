@@ -1,0 +1,24 @@
+@import url(https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Work+Sans:wght@400;600;700&display=swap);
+
+// Font Variables
+$PT-Serif: "PT Serif", serif;
+$Work-Sans: "Work Sans", sans-serif;
+
+// Color Variables
+$base-dark: #2f2926;
+$base-light: #f3e4e1;
+$base-extra: #e5674e;
+$text-light: #ffffff;
+$text-dark: #2f2926;
+
+h1,
+h2,
+h3,
+button {
+  font-family: $PT-Serif;
+}
+p,
+label,
+input {
+  font-family: $Work-Sans;
+}
