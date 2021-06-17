@@ -1,0 +1,87 @@
+{
+  "menu": [
+    {
+      "id": 1,
+      "title": "Bryggkaffe",
+      "desc": "Bryggd på månadens bönor.",
+      "price": 39
+    },
+    {
+      "id": 2,
+      "title": "Caffè Doppio",
+      "desc": "Bryggd på månadens bönor.",
+      "price": 49
+    },
+    {
+      "id": 3,
+      "title": "Cappuccino",
+      "desc": "Bryggd på månadens bönor.",
+      "price": 49
+    },
+    {
+      "id": 4,
+      "title": "Latte Macchiato",
+      "desc": "Bryggd på månadens bönor.",
+      "price": 49
+    },
+    {
+      "id": 5,
+      "title": "Kaffe Latte",
+      "desc": "Bryggd på månadens bönor.",
+      "price": 54
+    },
+    {
+      "id": 6,
+      "title": "Cortado",
+      "desc": "Bryggd på månadens bönor.",
+      "price": 39
+    }
+  ],
+  "orders": [
+    {
+      "id": [
+        1,
+        2,
+        3
+      ],
+      "title": [
+        "Bryggkaffe",
+        "Caffè Doppio",
+        "Cappuccino"
+      ],
+      "price": 137,
+      "userId": "ykXwGos9D8",
+      "orderNumber": "9Nq",
+      "ETA": "2021-06-17 21:52:46",
+      "orderTime": "21:49",
+      "status": "Coffee coming up"
+    },
+    {
+      "id": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "title": [
+        "Bryggkaffe",
+        "Bryggkaffe",
+        "Bryggkaffe",
+        "Bryggkaffe"
+      ],
+      "price": 156,
+      "userId": "ykXwGos9D8",
+      "orderNumber": "eTH",
+      "ETA": "2021-06-17 21:58:05",
+      "orderTime": "21:50"
+    }
+  ],
+  "accounts": [
+    {
+      "id": "ykXwGos9D8",
+      "username": "Test",
+      "password": "Test",
+      "email": "test@test.se"
+    }
+  ]
+}
