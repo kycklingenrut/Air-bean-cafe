@@ -46,7 +46,7 @@ function Navbar() {
           <NavMenu closeMenu={closeMenu}></NavMenu>
         </div>
         <div
-          className="cartContainer"
+          className="cartOverlay"
           style={showCart ? { display: "flex" } : { display: "none" }}
         >
           <Cart setShowCart={setShowCart}></Cart>

@@ -1,3 +1,17 @@
+@import url(https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Work+Sans:wght@400;600;700&display=swap);
+h1,
+h2,
+h3,
+button {
+  font-family: "PT Serif", serif;
+}
+
+p,
+label,
+input {
+  font-family: "Work Sans", sans-serif;
+}
+
 .App {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14,6 +28,7 @@
   height: 667px;
   background: #2f2926;
   overflow-y: scroll;
+  border-radius: 5px;
 }
 
 .App::-webkit-scrollbar {

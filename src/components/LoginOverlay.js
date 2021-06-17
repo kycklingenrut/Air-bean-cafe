@@ -1,20 +1,20 @@
 import "../scss/components.css";
 import logo from "../assets/logo.svg";
-// import { UserContext } from "../context/UserContext";
-// import { LoginContext } from "../context/LoginContext";
+import Header from "../components/Header";
 import OrderHistory from "./OrderHistory";
-import { useState } from "react";
+import { LoginContext } from "../context/LoginContext";
 
-//Problem med att hållas inloggad, hur lösa?
+import { setUser, resetUser } from "../actions/userActions";
+import { useState, useContext } from "react";
+import { useDispatch } from "react-redux";
+
 function LoginOverlay() {
+  const dispatch = useDispatch();
+  const { loggedIn, setLogin } = useContext(LoginContext);
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState();
-  const [loggedIn, setLogin] = useState(false);
   const [gdpr, setGdpr] = useState(false);
-  console.log(gdpr);
-  // const { user, setUser } = useContext(UserContext);
-  // const { loggedIn, setLogin } = useContext(LoginContext);
 
   const handleUsername = (event) => {
     setUsername(event.target.value);
@@ -22,18 +22,6 @@ function LoginOverlay() {
   const handlePassword = (event) => {
     setPassword(event.target.value);
   };
-
-  //Test för inloggningen
-  // useEffect(() => {
-  //   async function getUser() {
-  //     const response = await fetch(`http://localhost:8000/api/login`);
-  //     const data = await response.json();
-  //     setUser(data);
-  //   }
-  //   getUser();
-  // }, []);
-  // console.log(user);
-  // console.log(username, password);
 
   function handleClick() {
     console.log(`Username: ${username}
@@ -50,46 +38,42 @@ function LoginOverlay() {
     })
       .then((response) => response.json())
       .then((result) => {
-        if (result.success === false) {
+        if (result.success === true && gdpr === true) {
           console.log(result);
-          alert("Fel användarnamn eller lösenord, försök igen!");
+          dispatch(setUser(result));
+          setLogin(true);
+          setGdpr(true);
+        } else if (result.success === true && gdpr === false) {
+          alert("Klicka i att du godkänner GDPR");
         } else {
           console.log(result);
-          setUser(result);
-          setLogin(true);
+          alert("Fel användarnamn eller lösenord, försök igen!");
         }
-        // res.json().then((data) => {
-        //   setUser(data);
-        //   setLogin(true);
-        // fetchUserHistory();
-        // });
       });
+  }
+  function handleLogout() {
+    setLogin(false);
+    dispatch(resetUser());
   }
 
   return (
     <section
       className={loggedIn && gdpr ? "loginOverlay dark" : "loginOverlay"}
     >
-      {loggedIn && gdpr ? (
+      <Header></Header>
+      {loggedIn ? (
         <div>
-          <OrderHistory data={user}></OrderHistory>
-          <button
-            className="logOutBtn"
-            type="button"
-            onClick={() => {
-              setLogin(false);
-            }}
-          >
+          <OrderHistory></OrderHistory>
+          <button className="logOutBtn" type="submit" onClick={handleLogout}>
             Logga Ut
           </button>
         </div>
       ) : (
-        <div>
+        <div className="loginContainer">
           <img src={logo} alt="logo"></img>
-          <h1 className="loginHeader">Välkommen till AirBean-familjen!</h1>
+          <h1 className="loginHeader">Logga In</h1>
           <p className="loginBread">
-            Genom att skapa ett konto nedan kan du spara och se din
-            orderhistorik.
+            Har du inget konto? Gå till sidan Registrering.
           </p>
 
           <label htmlFor="username">Användarnamn</label>

@@ -1,3 +1,5 @@
+@import "theme";
+
 .App {
   display: flex;
   flex-direction: column;
@@ -5,8 +7,9 @@
   margin: 50px auto 50px auto;
   width: 375px;
   height: 667px;
-  background: #2f2926;
+  background: $base-dark;
   overflow-y: scroll;
+  border-radius: 5px;
 }
 // Hide scrollbar
 .App::-webkit-scrollbar {
